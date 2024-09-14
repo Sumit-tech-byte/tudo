@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .main {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .test1 {
+
+        height: 300px;
+        width: 300px;
+        border: 2px solid black;
+    }
+
+    .test2 {
+        height: 300px;
+        width: 300px;
+        border: 2px solid black;
+    }
+
+    .test3 {
+        height: 300px;
+        width: 300px;
+        border: 2px solid black;
+    }
+
+    .test4 {
+        height: 300px;
+        width: 300px;
+        border: 2px solid black;
+    }
+
+    input {
+        height: 30px;
+        margin: 100px;
+        outline: none;
+    }
+
+    .btn {
+        margin-top: 100px;
+        margin-left: 700px;
+    }
+
+    .ss1 {
+        display: none;
+        border-radius: 20px;
+    }
+</style>
+
+<body>
+
+    <div class="main">
+
+        <div class="test1"> <input type="text"> </div>
+        <div class="test2">
+            <div class="section"> <a href=""></a> <input type="text"> </div>
+        </div>
+        <div class="test3">
+            <div class="section2">
+
+                <div class="nested">
+                    <a href=""></a>
+                    <input class="ss" type="text">
+                    <a href=""></a>
+                    <div class="sib1"></div>
+                </div>
+            </div>
+        </div>
+        <div class="test4">
+
+            <div class="section3">
+                <div class="nested2">
+                    <input class="ss" type="text">
+                    <a href=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn">Click</button>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        // $('.main').val()
+        // $('.test1').val()
+        // $('.test2').val()
+        // $('.test3').val()
+        // $('.test4').val()
+        // $('input').val()
+
+        // let firstinput = $('.main')
+        let count = 0;
+
+
+        $(document).on('click', '.btn', function () {
+
+            count++
+            if (count == 1) {
+                $('.main').children('.test2').children('.section').children('input').val($('.main').children('.test1').children('input').val())
+                $('.main').children('.test1').children('input').val("")
+            }
+            else if (count == 2) {
+                $('.main').children('.test3').children('.section2').children('.nested').children('input').val($('.main').children('.test2').children('.section').children('input').val())
+                $('.main').children('.test2').children('.section').children('input').val("")
+
+            }
+
+            else if (count == 3) {
+                $('.main').children('.test4').children('.section3').children('.nested2').children('input').val($('.main').children('.test3').children('.section2').children('.nested').children('input').val())
+                $('.main').children('.test3').children('.section2').children('.nested').children('input').val("")
+            } else {
+                $('.main').children('.test1').children('input').val($('.main').children('.test4').children('.section3').children('.nested2').children('input').val())
+                $('.main').children('.test4').children('.section3').children('.nested2').children('input').val("")
+                count = 0
+            }
+
+
+
+
+
+        })
+
+
+
+    </script>
+
+
+</body>
+
+
+
+</html>

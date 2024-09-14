@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    body {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .imgbox {
+      height: 500px;
+      width: 600px;
+      position: relative;
+
+    }
+
+    .imgbox img {
+      height: inherit;
+      width: inherit;
+      border-radius: 20px;
+
+    }
+
+    .overlap {
+      height: inherit;
+      width: inherit;
+      background-color: #00000090;
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+
+
+    }
+
+    .overlap2 {
+      display: none;
+      border-radius: 20px;
+    }
+
+    .seeimg {
+
+
+      height: 40px;
+      width: inherit;
+
+      border-top: 2px solid #9e9e9e;
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      /* top: 0px; */
+      background-color: transparent;
+      color: #fff;
+      font-size: 16px;
+      text-transform: capitalize;
+      cursor: pointer;
+    }
+
+    .overlap h3 {
+      font-size: 28px;
+      color: white;
+      margin: 160px 0px 0px 160px;
+      text-transform: capitalize;
+    }
+
+    .overlap p {
+      font-size: 18px;
+      color: white;
+      text-align: center;
+    }
+  </style>
+</head>
+
+
+
+<body>
+
+  <div class="imgbox">
+
+    <img src="https://static.pexels.com/photos/36753/flower-purple-lical-blosso.jpg" alt="">
+    <div class="overlap">
+      <h3> sensitive content </h3>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt aliquam porro et iusto atque
+        blanditiis maiores ea veniam! Totam sed minima vel accusantium ratione architecto sapiente excepturi est
+        nulla dolorem dolore explicabo eum inventore praesentium odio non, quis, repellat temporibus natus, eos
+        possimus dignissimos tempora cupiditate ipsum. Esse, minima id.</p>
+
+    </div>
+    <button class="seeimg">see image</button>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <script>
+
+
+    // $('class').html()
+    $('overlap').html()
+    $('seeimg').html()
+
+    $(document).on('click', '.seeimg', function () {
+
+
+
+      $(".overlap").toggleClass('overlap2')
+      if ($('.overlap').hasClass('overlap2')) {
+        $('.seeimg').html('cover img')
+      }
+      else {
+        $('.seeimg').html('see img')
+
+      }
+
+    })
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

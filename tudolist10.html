@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .first1 {
+      width: 100%;
+      height: 300px;
+      border: 2px solid;
+      background-color: aqua;
+    }
+
+    .main1 {
+      margin-top: 20px;
+      margin-left: 400px;
+    }
+
+    .main3 {
+      width: 350px;
+      height: 40px;
+      border: 2px solid;
+      margin-left: 320px;
+      margin-top: 100px;
+    }
+
+    h2 {
+      margin-top: 5px;
+    }
+
+    .button4 {
+      display: flex;
+      margin-left: 240px;
+      margin-top: -52px;
+    }
+
+    .button2 {
+      height: 40px;
+    }
+
+    .button3 {
+      height: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="first1">
+    <div class="main1">
+      <input class="inp" type="text"><button class="btn1">Add</button>
+    </div>
+    <div class="main2">
+      <!-- <div class="main3">
+        <h2>Hello</h2>
+        <div class="button4">
+          <button class="button2">Update</button>
+          <button class="button3">Delete</button>
+        </div>
+
+      </div> -->
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+
+
+
+    let lastvar;
+    $(document).on('click', '.btn1', function () {
+      let val1 = $('.inp').val()
+
+      if ($('.btn1').html() == "Add") {
+        if (val1.trim() == "") {
+          alert("inavalid")
+        }
+
+        else {
+          $('.main2').append(` <div class="main3">
+          <h2>${val1}</h2>
+          <div class="button4">
+            <button class="button2">Update</button>
+          <button class="button3">Delete</button></div>
+
+        </div>`)
+          $('.inp').val("")
+
+        }
+      } else {
+        if (val1.trim() == "") {
+          alert("inavalid")
+        } else {
+          lastvar.html(val1)
+          $('.btn1').html('Add')
+          $('.inp').val("")
+        }
+
+
+
+      }
+
+    })
+
+    $(document).on("click", '.button2', function () {
+      let valh1 = $(this).parent('.button4').siblings('h2').html()
+      $('.inp').val(valh1)
+      $('.btn1').html('update')
+      lastvar = $(this).parent('.button4').siblings('h2')
+      $('.inp').focus()
+
+
+
+
+
+
+    })
+
+    $(document).on('click', '.button3', function () {
+      let del1 = $(this).parent('.button4').parent('.main3')
+      del1.remove()
+    })
+
+    if ($('.btn1').html == "Add") {
+
+
+
+    }
+
+
+
+  </script>
+
+</body>
+
+</html>

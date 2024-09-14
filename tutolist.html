@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .firstclass {
+
+      width: 100%;
+      height: auto;
+      border: 2px solid black;
+    }
+
+    .inp {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 400px;
+    }
+
+    .part2 {
+
+
+      height: auto;
+      width: 100%;
+      margin-left: 200px;
+      margin-top: 50px;
+      /* 
+      display: flex;
+      /* height: 100px; */
+      /* 
+      justify-content: center;
+      align-items: center; */
+    
+    }
+
+    .child {
+      display: flex;
+      width: 600px;
+      /* height: 50px; */
+      align-items: center;
+      box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+      margin-top: 30px;
+
+    }
+
+    .btn {
+      background-color: aqua;
+      height: 50px;
+      border: 2px solid red;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+    }
+
+    .btn {
+      background-color: aqua;
+      height: 50px;
+      border: 2px solid red;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    }
+
+
+    .btn1 {
+      background-color: red;
+      height: 35px;
+      margin-left: 5px;
+    }
+
+    #btn3 {
+      margin-left: 450px;
+
+    }
+
+    input {
+      height: 30px;
+    }
+
+    .main1 {
+      display: flex;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="firstclass">
+    <div class="main1"> <input type="text" class="inp"> <button class="btn1">add</button></div>
+
+    <div class="part2">
+
+      <!-- <div class="child">
+        <h2>hello</h2>
+        <button class="btn " id="btn3">update</button>
+        <button class="btn ">delete</button>
+
+      </div> -->
+
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+
+    $(document).on('click', '.btn1', function () {
+
+      let inpval = $('.inp').val()
+
+      if (inpval.trim() == "") {
+        alert("invalid data")
+      } else {
+        $('.part2').append(`
+              <div class="child">
+               <h2>${inpval}</h2>
+
+              <button class="btn2 " id="btn3">update</button>
+              <button class="btn3 ">delete</button>
+
+            </div>
+      `)
+        $('.inp').val("")
+
+
+
+      }
+    })
+
+    $(document).on('click', '.btn2', function () {
+      let inph2 = $(this).siblings('h2').html()
+      $('.inp').val(inph2)
+      $('.btn1').html('update')
+
+
+
+    })
+
+    $(document).on('click', '.btn3', function () {
+      let den = $(this).parent('.child')
+      den.hide()
+    })
+
+
+
+    
+
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>
